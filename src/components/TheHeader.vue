@@ -1,6 +1,14 @@
 <script>
+import ButtonAction from '@/components/ButtonAction.vue'
+import TheProfileImage from '@/components/TheProfileImage.vue'
+
 export default {
   name: 'TheHeader',
+
+  components: {
+    ButtonAction,
+    TheProfileImage
+  },
 
   data: () => ({
     company: 'Xumingo Careers',
@@ -12,8 +20,15 @@ export default {
       'Como contratamos',
       'Estudantes',
       'Empregos'
-    ]
-  })
+    ],
+    isLoggedIn: false
+  }),
+
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true
+    }
+  }
 }
 </script>
 
@@ -40,6 +55,11 @@ export default {
             </li>
           </ul>
         </nav>
+
+        <div class="ml-auto flex h-full items-center">
+          <TheProfileImage v-if="isLoggedIn" />
+          <ButtonAction v-else @click="loginUser" />
+        </div>
       </div>
     </div>
   </header>
