@@ -58,7 +58,7 @@ export default {
 
         <div class="ml-auto flex h-full items-center">
           <TheProfileImage v-if="isLoggedIn" />
-          <ButtonAction v-else @click="loginUser" />
+          <ButtonAction v-else text="Entrar" type="login" @click="loginUser" />
         </div>
       </div>
     </div>
